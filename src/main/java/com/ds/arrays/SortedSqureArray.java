@@ -1,6 +1,7 @@
 package com.ds.arrays;
 
 import java.util.Arrays;
+import java.util.stream.Stream;
 
 public class SortedSqureArray {
     public static void main(String[] args) {
@@ -9,11 +10,15 @@ public class SortedSqureArray {
         for (int i = 0; i < array.length; i++) {
             newArray[i]=array[i]*array[i];
         }
-        for (int i = 0; i < newArray.length; i++) {
+        System.out.println(Arrays.toString(newArray));
+        Arrays.stream(newArray).forEach(s -> System.out.println(s+1));
+
+/*        for (int i = 0; i < newArray.length; i++) {
 
             System.out.println(newArray[i]);
 
+        }*/
         }
-        }
+
 
 }
