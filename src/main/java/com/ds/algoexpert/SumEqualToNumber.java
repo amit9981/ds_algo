@@ -1,8 +1,6 @@
 package com.ds.algoexpert;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 public class SumEqualToNumber {
     public static void main(String[] args) {
@@ -11,10 +9,17 @@ public class SumEqualToNumber {
     }
     public static boolean isNumberPressent(List l, int a){
         boolean isPresent=false;
-        HashMap hm=new HashMap();
-        for (int i = 0; i < l.size(); i++) {
+        Set<Integer> resultSet = new HashSet();
 
-              }
+        for(int i=0; i<l.size() ;i++){
+            int subtract = a- (int)l.get(i);
+            if(resultSet.contains(subtract)){
+                 isPresent=true;
+                //return new int[]{l[i],subtract};
+            }else{
+                resultSet.add((int)l.get(i));
+            }
+        }
         return isPresent;
     }
 }
