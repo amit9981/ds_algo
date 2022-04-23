@@ -6,4 +6,7 @@ public class CustomArrayList {
         Node next;
 
     }
+    public CustomArrayList(){
+        Node node=new Node();
+    }
 }
