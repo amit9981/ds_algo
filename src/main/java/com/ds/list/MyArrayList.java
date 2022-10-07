@@ -1,6 +1,7 @@
 package com.ds.list;
 
 import java.util.Arrays;
+import java.util.HashMap;
 
 public class MyArrayList {
         private Object[] myStore;
@@ -50,6 +51,7 @@ public class MyArrayList {
         private void increaseListSize(){
             myStore = Arrays.copyOf(myStore, myStore.length*2);
             System.out.println("\nNew length: "+myStore.length);
+
         }
 
         public static void main(String a[]){
