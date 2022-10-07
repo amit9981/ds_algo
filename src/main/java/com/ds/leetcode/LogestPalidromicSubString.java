@@ -1,10 +1,18 @@
 package com.ds.leetcode;
 
+import javax.swing.text.Segment;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.CopyOnWriteArrayList;
+
 public class LogestPalidromicSubString {
     public static void main(String[] args) {
         String str = "KNITINABC";
         System.out.println("Length is: "
                 + longestPalSubstr(str));
+      //  CopyOnWriteArrayList
+                ConcurrentHashMap chm=new ConcurrentHashMap();
+            m1(10);
+        //Segment  s=new Segment()
     }static int longestPalSubstr(String str)
     {
         int n = str.length(); // calculcharAting size of string
@@ -39,6 +47,12 @@ public class LogestPalidromicSubString {
         System.out.println(str.substring(start, start + maxLength ));
         return maxLength;
 
+    }
+    static void m1(Integer i){
+        System.out.println("i");
+    }
+   static void m1(String a){
+        System.out.println("a");
     }
 }
 
