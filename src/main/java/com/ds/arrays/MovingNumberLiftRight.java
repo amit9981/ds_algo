@@ -1,5 +1,7 @@
 package com.ds.arrays;
 
+import java.util.Arrays;
+
 public class MovingNumberLiftRight {
     static void rearrange(int arr[], int n)
     {
@@ -19,8 +21,7 @@ public class MovingNumberLiftRight {
     // A utility function to print an array
     static void printArray(int arr[], int n)
     {
-        for (int i = 0; i < n; i++)
-            System.out.print(arr[i] + " ");
+        //System.out.println( Arrays.stream(arr).sum());
     }
 
     // Driver code
