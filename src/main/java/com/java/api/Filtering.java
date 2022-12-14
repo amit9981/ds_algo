@@ -6,6 +6,7 @@ import org.junit.Test;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Predicate;
+import java.util.function.ToDoubleFunction;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -56,4 +57,48 @@ public class Filtering {
         Stream<Integer> unorderedList = Stream.of(2, 5, 7, 18, 12, 6, 2, 1, 16, 51);
         unorderedList.takeWhile(n -> n % 2 == 0).forEach(System.out::println);
     }
+
+    @Test
+    public void MyInterface2() {
+        ToDoubleFunction<String> length = x -> x.length();
+        System.out.println(length.applyAsDouble("This is an example of predefined functional interface."));
+    }
+
+    @Test
+    public void findFirst() {
+        int[] numbers = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+        int result = Arrays.stream(numbers).filter(n -> n == 50)
+                .findFirst()
+                .orElse(-1);
+        System.out.println(result);
+
+    }
+
+    @Test
+    public void findAny() {
+        int[] numbers = {1, 2, 3, 4, 5, 6, 7, 8, 9, 9, 10};
+        int result = Arrays.stream(numbers).filter(Filtering::test) //(n->n==9)
+                .findAny()
+                .orElse(-1);
+        System.out.println(result);
+    }
+
+    @Test
+    public void allMatch() {
+        int[] even = {2, 4, 6, 8, 1,10};
+        boolean allMatch = Arrays.stream(even).allMatch(n -> n % 2 == 0);
+        System.out.println(allMatch);
+    }
+
+    @Test
+    public void anyMatch() {
+        int[] evenAndOneOdd = {2, 4, 6, 8, 10, 11};
+        boolean anyMatch = Arrays.stream(evenAndOneOdd).anyMatch(n -> !(n % 2 == 0));
+        System.out.println(anyMatch);
+    }
+    private static boolean test(int n) {
+        return n == 9;
+    }
+
+
 }
