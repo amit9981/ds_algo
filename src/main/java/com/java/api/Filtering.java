@@ -14,7 +14,6 @@ public class Filtering {
     @Test
     public void filter() throws Exception {
         List<Car> cars = MockData.getCars();
-
         cars.stream()
                 .filter(p -> p.getPrice() > 5000)
                 .filter(p -> p.getColor().equalsIgnoreCase("Yellow"))
@@ -85,7 +84,7 @@ public class Filtering {
 
     @Test
     public void allMatch() {
-        int[] even = {2, 4, 6, 8, 1,10};
+        int[] even = {2, 4, 6, 8, 1, 10};
         boolean allMatch = Arrays.stream(even).allMatch(n -> n % 2 == 0);
         System.out.println(allMatch);
     }
@@ -96,6 +95,7 @@ public class Filtering {
         boolean anyMatch = Arrays.stream(evenAndOneOdd).anyMatch(n -> !(n % 2 == 0));
         System.out.println(anyMatch);
     }
+
     private static boolean test(int n) {
         return n == 9;
     }
