@@ -13,6 +13,10 @@ public class DiamondOperator {
     public abstract static class StringAppender<T> {
         public abstract T append(String a, String b);
     }
+
+    public static void main(String[] args) {
+        System.out.println(new DiamondOperator().appending.append("Hello","Hi"));
+    }
     /* Compiler Error
     java: cannot infer type arguments for
 com.reflectoring.io.java9.DiamondOperator.StringAppender<T>
