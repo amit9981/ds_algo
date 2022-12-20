@@ -31,10 +31,10 @@ public class LocalVarType {
     @Test
     public void varTypes() {
         var Roland = new Person(1, "Roland", "Deschain", "Atest@gmail.com", "M", 21);
-        var Susan = new Person(2, "Susan", "Delgado", "Atest@gmail.com", "M", 21);
-        var Eddie = new Person(3, "Eddie", "Dean", "Atest@gmail.com", "M", 21);
-        var Detta = new Person(4, "Detta", "Walker", "Atest@gmail.com", "M", 21);
-        var Jake = new Person(5, "Jake", "Chambers", "Atest@gmail.com", "M", 21);
+        var Susan = new Person(2, "Susan", "Delgado", "Atest@gmail.com", "M", 22);
+        var Eddie = new Person(3, "Eddie", "Dean", "Atest@gmail.com", "M", 23);
+        var Detta = new Person(4, "Detta", "Walker", "Atest@gmail.com", "M", 24);
+        var Jake = new Person(5, "Jake", "Chambers", "Atest@gmail.com", "M", 25);
 
         var persons = List.of(Roland, Susan, Eddie, Detta, Jake);
 
