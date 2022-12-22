@@ -13,6 +13,9 @@ import java.util.stream.Collectors;
 public class GroupingData {
     @Test
     public void simpleGrouping() throws Exception {
+        Map map=MockData.getPeople().stream().collect(Collectors.groupingBy(Person::getGender));
+        //System.out.println(map);
+//map.forEach((k,v)-> System.out.println(k));
     /*    Map<String, List<Car>> map = MockData.getCars()
                 .stream()
                 .collect(Collectors.groupingBy(Car::getColor));
@@ -21,7 +24,7 @@ public class GroupingData {
             cars.forEach(System.out::println);
             System.out.println("---------------------");
         });*/
-        System.out.println(MockData.getCars().stream().collect(Collectors.groupingBy(Car::getColor)));
+      //  System.out.println(MockData.getCars().stream().collect(Collectors.groupingBy(Car::getColor)));
 
     }
 
