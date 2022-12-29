@@ -93,5 +93,6 @@ public class GroupingData {
                 .collect(groupingBy(post -> new ImmutablePair<>(post.getType(), post.getAuthor())));*/
     }
 
+
 }
 
