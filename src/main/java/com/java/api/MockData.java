@@ -29,7 +29,7 @@ public class MockData {
         String json = IOUtils.toString(inputStream, StandardCharsets.UTF_8);
         Type listType = new TypeToken<ArrayList<Person>>() {
         }.getType();
-        return new Gson().fromJson(json, List.class);
+        return new Gson().fromJson(json, listType);
     }
 
     public static List<Car> getCars() throws IOException {
