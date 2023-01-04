@@ -28,8 +28,9 @@ public class UseOfJava8Map {
     }
     @Test
     public void understandingCollect() throws Exception {
-        MockData.getCars().stream().map(Car::getColor).collect(toList()).forEach(System.out::println);
-        MockData.getPeople().stream().map(Person::getEmail).collect(toList()).forEach(System.out::println);
+       // MockData.getCars().stream().map(Car::getColor).collect(toList()).forEach(System.out::println);
+        //MockData.getPeople().stream().map(Person::getEmail).collect(toList()).forEach(System.out::println);
+
 
        /* List<String> emails = MockData.getPeople()
                 .stream()
@@ -41,22 +42,27 @@ public class UseOfJava8Map {
 
     @Test
     public void intermediateAndTerminalOperations() throws Exception {
-        System.out.println(
+       /* System.out.println(
                 MockData.getCars()
                         .stream()
                         .filter(car -> {
                             System.out.println("filter car " + car);
-                            return car.getPrice() < 10000;
+                            return car.getPrice() < 10000;   //if condition full fill then it will collect in list
                         })
                         .map(car -> {
                             System.out.println("mapping car " + car);
-                            return car.getPrice();
+                            return car.getPrice();  //it will print only car price whose value is less than 10000
                         })
-                        .map(price -> {
+                        *//*.map(price -> {
                             System.out.println("mapping price " + price);
                             return price + (price * .14);
-                        })
+                        })*//*
                         .collect(toList())
-        );
+        );*/
+      /*  Alternate way of filtering like above
+        MockData.getCars().stream().filter(n->n.getPrice()<10000).collect(toList()).forEach(System.out::println);
+ MockData.getCars().stream().filter(n->n.getPrice()<10000).map(n->n.getPrice()).collect(toList()).forEach(System.out::println);
+
+       */
     }
 }
