@@ -28,6 +28,8 @@ public class TerminalProcessMain {
         Process p2 = Runtime.getRuntime().exec(command.get(1), null, whereToRun);
         System.out.println("git push started : " + command.get(2));
         Process p3 = Runtime.getRuntime().exec(command.get(2), null, whereToRun);
+         p3.waitFor(30, TimeUnit.SECONDS);
+
         cleanUp(p1,p2,p3);
 
     }
