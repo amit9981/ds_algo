@@ -28,9 +28,9 @@ public class TerminalProcessMain {
         Process p2 = Runtime.getRuntime().exec(command.get(1), null, whereToRun);
         System.out.println("git push started : " + command.get(2));
         Process p3 = Runtime.getRuntime().exec(command.get(2), null, whereToRun);
+        boolean isFinished3 = p3.waitFor(60, TimeUnit.SECONDS);
         boolean isFinished1 = p1.waitFor(50, TimeUnit.SECONDS);
         boolean isFinished2 = p2.waitFor(50, TimeUnit.SECONDS);
-        boolean isFinished3 = p3.waitFor(30, TimeUnit.SECONDS);
         if (isFinished1 && isFinished2 && isFinished3) {
             cleanUp(p1, p2, p3);
         }
