@@ -15,7 +15,8 @@ public class TerminalProcessMain {
         File location = new File("/Users/amit/Desktop/project/new/ds_algo");
         ArrayList commands = new ArrayList();
         commands.add("git add .");
-        commands.add("git commit -a -m  'test'");
+       // commands.add("git commit -a -m  'test'");
+        commands.add(gitMsg);
         commands.add("git push");
         runCommand(location, commands); // for Mac(Linux based OS) users list files
     }
@@ -49,7 +50,7 @@ public class TerminalProcessMain {
 
     public String generateGitMsg(){
         LocalDate today = LocalDate.now();
-        String str=this.getClass().getName().substring(8)+" Changes on "+today;
+        String str=this.getClass().getName().substring(8)+"_Changes_on_"+today;
         String gitCommandNew="git commit -a -m  "+"'"+str+"'";
         System.out.println(gitCommandNew);
 
