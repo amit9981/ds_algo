@@ -17,16 +17,20 @@ public class TerminalProcessMain {
         al.add("git commit -a -m  'auto commit now'");
         al.add("git push");
 
-        runCommand(location, al); // for Mac(Linux based OS) users list files
+        runCommand(location, "git commit -a -m 'testnew' "); // for Mac(Linux based OS) users list files
 
         // runCommand(location, "dir"); // For Windows users list files
     }
 
-    public static void runCommand(File whereToRun, List<String> command) throws Exception {
+    public static void runCommand(File whereToRun, String command) throws Exception {
         System.out.println("Running in: " + whereToRun);
         System.out.println("Command: " + command);
-
-        ProcessBuilder builder = new ProcessBuilder();
+        Process process = Runtime.getRuntime().exec(command, null, whereToRun);
+        boolean isFinished = process.waitFor(30, TimeUnit.SECONDS);
+        if (isFinished) {
+            process.destroyForcibly();
+        }
+        /*ProcessBuilder builder = new ProcessBuilder();
         builder.directory(whereToRun);
         String s1 = "git commit ";
         String s2 = "-a";
@@ -52,7 +56,7 @@ public class TerminalProcessMain {
         process2.destroy();
         //process.wait(1000, 100);
         //process.destroyForcibly();
-        System.out.println("process destroy");
+        System.out.println("process destroy");*/
         //}
 
 
