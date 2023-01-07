@@ -1,6 +1,7 @@
 package com.rnd;
 
 import java.io.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -10,12 +11,12 @@ public class TerminalProcessMain {
 
     public static void main(String[] args) throws Exception {
         // Where we want to execute
+        String gitMsg = new TerminalProcessMain().generateGitMsg();
         File location = new File("/Users/amit/Desktop/project/new/ds_algo");
         ArrayList commands = new ArrayList();
         commands.add("git add .");
-        commands.add("git commit -a -m  'auto'");
+        commands.add("git commit -a -m  'test'");
         commands.add("git push");
-
         runCommand(location, commands); // for Mac(Linux based OS) users list files
     }
 
@@ -27,10 +28,10 @@ public class TerminalProcessMain {
         boolean isFinished1 = p1.waitFor(50, TimeUnit.SECONDS);
         System.out.println("commit started : " + command.get(1));
         Process p2 = Runtime.getRuntime().exec(command.get(1), null, whereToRun);
-        boolean isFinished2 = p2.waitFor(50, TimeUnit.SECONDS);
+        boolean isFinished2 = p2.waitFor(90, TimeUnit.SECONDS);
         System.out.println("git push started : " + command.get(2));
         Process p3 = Runtime.getRuntime().exec(command.get(2), null, whereToRun);
-        boolean isFinished3 = p3.waitFor(60, TimeUnit.SECONDS);
+        boolean isFinished3 = p3.waitFor(90, TimeUnit.SECONDS);
 
 
         if (isFinished1 && isFinished2 && isFinished3) {
@@ -38,13 +39,21 @@ public class TerminalProcessMain {
         }
     }
 
-    private static void cleanUp(Process p1,Process p2,Process p3) throws InterruptedException {
-        System.out.println("process cleanUp Started : " );
-            p1.destroyForcibly();
-            p2.destroyForcibly();
-            p3.destroyForcibly();
+    private static void cleanUp(Process p1, Process p2, Process p3) throws InterruptedException {
+        System.out.println("process cleanUp Started : ");
+        p1.destroyForcibly();
+        p2.destroyForcibly();
+        p3.destroyForcibly();
+        System.out.println("process cleanUp End : ");
+    }
 
-        System.out.println("process cleanUp End : " );
+    public String generateGitMsg(){
+        LocalDate today = LocalDate.now();
+        String str=this.getClass().getName().substring(8)+" Changes on "+today;
+        String gitCommandNew="git commit -a -m  "+"'"+str+"'";
+        System.out.println(gitCommandNew);
+
+        return gitCommandNew;
     }
 
 }
