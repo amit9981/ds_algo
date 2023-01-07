@@ -36,17 +36,20 @@ public class TerminalProcessMain {
         //for (int i = 0; i < command.size(); i++) {
         builder.command("sh", "-c", "git add . ");
         Process process = builder.start();
-        ProcessBuilder builder1 = new ProcessBuilder();
+       // process.destroy();
 
+        ProcessBuilder builder1 = new ProcessBuilder();
         builder1.command("sh", "-c", "git commit -a -m 'test' ");
         System.out.println("process start");
-        Process process1 = builder.start();
+        Process process1 = builder1.start();
+        process1.destroy();
         System.out.println("process end");
         ProcessBuilder builder2 = new ProcessBuilder();
 
         builder2.command("sh", "-c", "push");
         System.out.println("process start");
-        Process process2 = builder.start();
+        Process process2 = builder2.start();
+        process2.destroy();
         //process.wait(1000, 100);
         //process.destroyForcibly();
         System.out.println("process destroy");
