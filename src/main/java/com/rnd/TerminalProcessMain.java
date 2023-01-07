@@ -28,17 +28,29 @@ public class TerminalProcessMain {
 
         ProcessBuilder builder = new ProcessBuilder();
         builder.directory(whereToRun);
+        String s1 = "git commit ";
+        String s2 = "-a";
+        // String s3 = "'Auto commit test'";
+        String s4 = s1 + s2;
 
-        for (int i = 0; i <command.size() ; i++) {
-            builder.command("sh", "-c", "git add .");
-            builder.command("sh", "-c", "git commit -a -m  'auto commit now' ");
-            System.out.println("process start");
-            Process process = builder.start();
-            System.out.println("process end");
-            process.wait(1000,100);
-            //process.destroyForcibly();
-            System.out.println("process destroy");
-        }
+        //for (int i = 0; i < command.size(); i++) {
+        builder.command("sh", "-c", "git add . ");
+        Process process = builder.start();
+        ProcessBuilder builder1 = new ProcessBuilder();
+
+        builder1.command("sh", "-c", "git commit -a -m 'test' ");
+        System.out.println("process start");
+        Process process1 = builder.start();
+        System.out.println("process end");
+        ProcessBuilder builder2 = new ProcessBuilder();
+
+        builder2.command("sh", "-c", "push");
+        System.out.println("process start");
+        Process process2 = builder.start();
+        //process.wait(1000, 100);
+        //process.destroyForcibly();
+        System.out.println("process destroy");
+        //}
 
 
 
