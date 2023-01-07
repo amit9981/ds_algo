@@ -28,24 +28,20 @@ public class TerminalProcessMain {
         Process p2 = Runtime.getRuntime().exec(command.get(1), null, whereToRun);
         System.out.println("git push started : " + command.get(2));
         Process p3 = Runtime.getRuntime().exec(command.get(2), null, whereToRun);
-         p3.waitFor(30, TimeUnit.SECONDS);
-
-        cleanUp(p1,p2,p3);
-
+        boolean isFinished1 = p1.waitFor(50, TimeUnit.SECONDS);
+        boolean isFinished2 = p2.waitFor(50, TimeUnit.SECONDS);
+        boolean isFinished3 = p3.waitFor(30, TimeUnit.SECONDS);
+        if (isFinished1 && isFinished2 && isFinished3) {
+            cleanUp(p1, p2, p3);
+        }
     }
 
     private static void cleanUp(Process p1,Process p2,Process p3) throws InterruptedException {
         System.out.println("process cleanUp Started : " );
-
-        boolean isFinished1 = p1.waitFor(50, TimeUnit.SECONDS);
-        boolean isFinished2 = p2.waitFor(50, TimeUnit.SECONDS);
-        boolean isFinished3 = p3.waitFor(30, TimeUnit.SECONDS);
-
-        if (isFinished1 && isFinished2 && isFinished3) {
             p1.destroyForcibly();
             p2.destroyForcibly();
             p3.destroyForcibly();
-        }
+
         System.out.println("process cleanUp End : " );
     }
 
