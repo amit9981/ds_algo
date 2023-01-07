@@ -12,23 +12,32 @@ public class TerminalProcessMain {
         // Where we want to execute
         File location = new File("/Users/amit/Desktop/project/new/ds_algo");
         ArrayList al = new ArrayList();
-        al.add("git status");
+       // al.add("git status");
         al.add("git add .");
-        al.add("git commit -a -m  'auto commit now'");
+        al.add("git commit -a -m  'auto'");
         al.add("git push");
 
-        runCommand(location, "git commit -a -m 'testnew' "); // for Mac(Linux based OS) users list files
+        runCommand(location, al); // for Mac(Linux based OS) users list files
 
         // runCommand(location, "dir"); // For Windows users list files
     }
 
-    public static void runCommand(File whereToRun, String command) throws Exception {
+    public static void runCommand(File whereToRun, List<String> command) throws Exception {
         System.out.println("Running in: " + whereToRun);
         System.out.println("Command: " + command);
-        Process process = Runtime.getRuntime().exec(command, null, whereToRun);
-        boolean isFinished = process.waitFor(30, TimeUnit.SECONDS);
-        if (isFinished) {
+        Process process = Runtime.getRuntime().exec(command.get(0), null, whereToRun);
+        Process process1 = Runtime.getRuntime().exec(command.get(1), null, whereToRun);
+        Process process2 = Runtime.getRuntime().exec(command.get(2), null, whereToRun);
+
+        boolean isFinished = process.waitFor(50, TimeUnit.SECONDS);
+        boolean isFinished1 = process1.waitFor(50, TimeUnit.SECONDS);
+        boolean isFinished2 = process2.waitFor(30, TimeUnit.SECONDS);
+
+        if (isFinished && isFinished1 &&isFinished2) {
             process.destroyForcibly();
+            process1.destroyForcibly();
+            process2.destroyForcibly();
+
         }
         /*ProcessBuilder builder = new ProcessBuilder();
         builder.directory(whereToRun);
