@@ -16,7 +16,7 @@ public class TerminalProcessMain {
         ArrayList commands = new ArrayList();
         commands.add("git add .");
        // commands.add("git commit -a -m  'test'");
-        commands.add(gitMsg);
+        commands.add("git commit -a -m  Find_smallest_sub_string");
         commands.add("git push");
         runCommand(location, commands); // for Mac(Linux based OS) users list files
     }
