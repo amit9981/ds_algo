@@ -6,17 +6,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-public class TerminalProcessMain {
+public class GitCommitAndPushMainProgram {
     private static boolean isWindows = System.getProperty("os.name").toLowerCase().startsWith("windows");
 
     public static void main(String[] args) throws Exception {
         // Where we want to execute
-        String gitMsg = new TerminalProcessMain().generateGitMsg();
+        String gitMsg = new GitCommitAndPushMainProgram().generateGitMsg();
         File location = new File("/Users/amit/Desktop/project/new/ds_algo");
         ArrayList commands = new ArrayList();
         commands.add("git add .");
        // commands.add("git commit -a -m  'test'");
-        commands.add("git commit -a -m  Find_smallest_sub_string");
+        commands.add("git commit -a -m  rename");
         commands.add("git push");
         runCommand(location, commands); // for Mac(Linux based OS) users list files
     }
