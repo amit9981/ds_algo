@@ -15,8 +15,8 @@ public class GitCommitAndPushMainProgram {
         File location = new File("/Users/amit/Desktop/project/new/ds_algo");
         ArrayList commands = new ArrayList();
         commands.add("git add .");
-       // commands.add("git commit -a -m  'test'");
-        commands.add("git commit -a -m  rename");
+       //commands.add(gitMsg);
+        commands.add("git commit -a -m  gfg_program");
         commands.add("git push");
         runCommand(location, commands); // for Mac(Linux based OS) users list files
     }
