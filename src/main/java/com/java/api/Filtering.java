@@ -1,6 +1,7 @@
 package com.java.api;
 
 import com.java.beans.Car;
+import com.java.beans.Person;
 import org.junit.Test;
 
 import java.util.Arrays;
@@ -22,6 +23,18 @@ public class Filtering {
         Predicate<Car> pricePredicate = p -> p.getPrice() > 5000;
         Predicate<Car> colorPredicate = p -> p.getColor().equalsIgnoreCase("green");
         cars.stream().filter(pricePredicate).filter(colorPredicate).collect(Collectors.toList()).forEach(System.out::println);
+
+    }
+    @Test
+    public void filterPersion() throws Exception {
+        List<Person> personList = MockData.getPeople();
+        personList.stream()
+                .filter(p -> p.getGender()=="Male")
+                .collect(Collectors.toList())
+                .forEach(System.out::println);
+        //second way
+        Predicate<Person> pricePredicate = p -> p.getGender().equalsIgnoreCase("Female");
+        personList.stream().filter(pricePredicate).collect(Collectors.toList()).forEach(System.out::println);
 
     }
 
