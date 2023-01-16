@@ -16,7 +16,7 @@ public class GitCommitAndPushMainProgram {
         ArrayList commands = new ArrayList();
         commands.add("git add .");
        //commands.add(gitMsg);
-        commands.add("git commit -a -m  binarySearch");
+        commands.add("git commit -a -m  insertvalue_in_sorted_array");
         commands.add("git push");
         runCommand(location, commands); // for Mac(Linux based OS) users list files
     }

@@ -1,7 +1,7 @@
-package com.java.gfg;
+package com.java.gfg.stack;
 
 import java.util.Stack;
-
+//Pattern Occurrences : Stack Implementation Java
 public class StackImplementation {
     //Function to check if brackets are balanced or not.
         static boolean ispar(String x)
