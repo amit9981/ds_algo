@@ -23,12 +23,35 @@ public class SortedArray {
         int arr[] = {5, 6, 7, 8, 9, 10};
         int n, key;
         n = arr.length - 1;
-        key = 10;
+        key = 11;
 
         // Function call
+       /* System.out.println("Index: "
+                + binarySearch(arr, 0, n, key));*/
+
+
         System.out.println("Index: "
-                + binarySearch(arr, 0, n, key));
+                + binarysearch1(arr, n, key));
+
     }
+
+    public static int binarysearch1(int arr[], int n, int k) {
+        int start = 0;
+        int end = arr.length - 1;
+
+        while (start <= end) {
+            int mid = (start + end) / 2;
+            if (arr[mid] == k) {
+                return mid;
+            } else if (arr[mid] < k) {
+                start = mid + 1;
+            } else if (arr[mid] > k) {
+                end = mid - 1;
+            }
+        }
+        return -1;
+    }
+
 
     /*@Test
     public void binarySearchTest() {
