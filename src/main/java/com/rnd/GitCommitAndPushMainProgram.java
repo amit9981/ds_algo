@@ -1,30 +1,23 @@
 package com.rnd;
 
 import java.io.*;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
 public class GitCommitAndPushMainProgram {
-    private static boolean isWindows = System.getProperty("os.name").toLowerCase().startsWith("windows");
-
     public static void main(String[] args) throws Exception {
         // Where we want to execute
-        String gitMsg = new GitCommitAndPushMainProgram().generateGitMsg();
-        File location = new File("/Users/amit/Desktop/project/new/ds_algo");
+        File location = new File(JavaConstant.GitCommand.PROJECT_LOCATION);
         ArrayList commands = new ArrayList();
-        commands.add("git add .");
-       //commands.add(gitMsg);
-        Scanner sc=new Scanner(System.in);
-        //sc.next();
-        System.out.println("Please enter comments ");
-        commands.add("git commit -a -m"+sc.next());
-        commands.add("git push");
+        commands.add(JavaConstant.GitCommand.GIT_ADD);
+        Scanner sc = new Scanner(System.in);
+        System.out.println(JavaConstant.GitCommand.GIT_COMMENTS);
+        commands.add(JavaConstant.GitCommand.GIT_COMMIT + sc.next());
+        commands.add(JavaConstant.GitCommand.GIT_PUSH);
         runCommand(location, commands); // for Mac(Linux based OS) users list files
     }
-
     public static void runCommand(File whereToRun, List<String> command) throws Exception {
         System.out.println("Running in: " + whereToRun);
         System.out.println("Command: " + command);
@@ -37,13 +30,10 @@ public class GitCommitAndPushMainProgram {
         System.out.println("git push started : " + command.get(2));
         Process p3 = Runtime.getRuntime().exec(command.get(2), null, whereToRun);
         boolean isFinished3 = p3.waitFor(90, TimeUnit.SECONDS);
-
-
         if (isFinished1 && isFinished2 && isFinished3) {
             cleanUp(p1, p2, p3);
         }
     }
-
     private static void cleanUp(Process p1, Process p2, Process p3) throws InterruptedException {
         System.out.println("process cleanUp Started : ");
         p1.destroyForcibly();
@@ -51,14 +41,4 @@ public class GitCommitAndPushMainProgram {
         p3.destroyForcibly();
         System.out.println("process cleanUp End : ");
     }
-
-    public String generateGitMsg(){
-        LocalDate today = LocalDate.now();
-        String str=this.getClass().getName().substring(8)+"_Changes_on_"+today;
-        String gitCommandNew="git commit -a -m  "+"'"+str+"'";
-        System.out.println(gitCommandNew);
-
-        return gitCommandNew;
-    }
-
 }
