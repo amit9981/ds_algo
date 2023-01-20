@@ -4,6 +4,7 @@ import java.io.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
 public class GitCommitAndPushMainProgram {
@@ -16,7 +17,10 @@ public class GitCommitAndPushMainProgram {
         ArrayList commands = new ArrayList();
         commands.add("git add .");
        //commands.add(gitMsg);
-        commands.add("git commit -a -m  java11_stringMethod");
+        Scanner sc=new Scanner(System.in);
+        //sc.next();
+        System.out.println("Please enter comments ");
+        commands.add("git commit -a -m"+sc.next());
         commands.add("git push");
         runCommand(location, commands); // for Mac(Linux based OS) users list files
     }
