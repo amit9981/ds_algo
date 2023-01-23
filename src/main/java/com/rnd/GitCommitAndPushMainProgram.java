@@ -14,7 +14,9 @@ public class GitCommitAndPushMainProgram {
         commands.add(JavaConstant.GitCommand.GIT_ADD);
         Scanner sc = new Scanner(System.in);
         System.out.println(JavaConstant.GitCommand.GIT_COMMENTS);
-        commands.add(JavaConstant.GitCommand.GIT_COMMIT + sc.next());
+        String str=sc.next();
+        String commitMSG=JavaConstant.GitCommand.GIT_COMMIT + str;
+        commands.add(commitMSG);
         commands.add(JavaConstant.GitCommand.GIT_PUSH);
         runCommand(location, commands); // for Mac(Linux based OS) users list files
     }
