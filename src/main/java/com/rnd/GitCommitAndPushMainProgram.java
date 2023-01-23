@@ -13,10 +13,8 @@ public class GitCommitAndPushMainProgram {
         ArrayList commands = new ArrayList();
         commands.add(JavaConstant.GitCommand.GIT_ADD);
         Scanner sc = new Scanner(System.in);
-        System.out.println("please enter");
-        String str=sc.next();
-        String commitMSG=JavaConstant.GitCommand.GIT_COMMIT + str;
-        commands.add(commitMSG);
+        System.out.println(JavaConstant.GitCommand.GIT_COMMENTS);
+        commands.add(JavaConstant.GitCommand.GIT_COMMIT + sc.next());
         commands.add(JavaConstant.GitCommand.GIT_PUSH);
         runCommand(location, commands); // for Mac(Linux based OS) users list files
     }
