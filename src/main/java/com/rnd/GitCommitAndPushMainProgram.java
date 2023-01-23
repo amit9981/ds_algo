@@ -13,7 +13,7 @@ public class GitCommitAndPushMainProgram {
         ArrayList commands = new ArrayList();
         commands.add(JavaConstant.GitCommand.GIT_ADD);
         Scanner sc = new Scanner(System.in);
-        System.out.println(JavaConstant.GitCommand.GIT_COMMENTS);
+        System.out.println("please enter");
         String str=sc.next();
         String commitMSG=JavaConstant.GitCommand.GIT_COMMIT + str;
         commands.add(commitMSG);
