@@ -22,7 +22,7 @@ public class FindSmallestSubString {
                     // Append all substrings
                     a1.add(a.substring(i, j));
             }
-            System.out.println(a1);
+           // System.out.println(a1);
         }
         System.out.println("after loop :: "+a1);
 
