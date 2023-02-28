@@ -11,12 +11,6 @@ public class SumEqualToNumber {
         boolean isPresent=false;
         Set<Integer> resultSet = new HashSet();
 
-        l.stream().forEach(i-> {
-           int sub= a-(Integer) i;
-        //   resultSet.
-        });
-
-
         for(int i=0; i<l.size() ;i++){
             int subtract = a- (int)l.get(i);
             if(resultSet.contains(subtract)){

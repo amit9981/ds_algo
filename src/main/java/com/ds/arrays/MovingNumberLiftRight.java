@@ -21,7 +21,10 @@ public class MovingNumberLiftRight {
     // A utility function to print an array
     static void printArray(int arr[], int n)
     {
-        //System.out.println( Arrays.stream(arr).sum());
+        for (int i = 0; i < n; i++) {
+            System.out.println(arr[i]);
+        }
+        System.out.println( Arrays.stream(arr).sum());
     }
 
     // Driver code

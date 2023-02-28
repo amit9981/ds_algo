@@ -11,14 +11,14 @@ import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-import static java.util.stream.Collectors.groupingBy;
+//import static java.util.stream.Collectors.groupingBy;
 //static import allow all static member access without class name
 
 
 public class GroupingData {
     @Test
     public void simpleGrouping() throws Exception {
-        Map map=MockData.getPeople().stream().collect(groupingBy(Person::getGender));
+        Map map=MockData.getPeople().stream().collect(Collectors.groupingBy(Person::getGender));
         System.out.println(map);
 //map.forEach((k,v)-> System.out.println(k));
     /*    Map<String, List<Car>> map = MockData.getCars()
@@ -48,7 +48,7 @@ public class GroupingData {
         );
 
         Map<String, Long> map = names.stream()
-                .collect(groupingBy(
+                .collect(Collectors.groupingBy(
                         Function.identity(),
                         Collectors.counting())
                 );

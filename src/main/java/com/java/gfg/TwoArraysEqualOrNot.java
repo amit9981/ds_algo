@@ -3,6 +3,7 @@ package com.java.gfg;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.stream.Collectors;
 
 /*How to comapire 2 different Arrays and Collections Object*/
 public class TwoArraysEqualOrNot {
@@ -26,7 +27,7 @@ public class TwoArraysEqualOrNot {
         System.out.println(Arrays.equals(a,b));
         Collections.sort(a1);
         Collections.sort(b1);
-        System.out.println(a1.equals(b1));
+     //R collect = Arrays.stream(b).sorted().collect(Collectors.toList());
 
     }
 }
