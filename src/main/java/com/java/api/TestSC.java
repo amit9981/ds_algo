@@ -14,7 +14,7 @@ public class TestSC {
         LinkedList<Integer> l3= new LinkedList<>();//5,1,
 
         Iterator iterator=l1.iterator();
-        Iterator iterator2=l1.iterator();
+        Iterator iterator2=l2.iterator();
 
         int a=0;
         int b=0;

@@ -9,7 +9,7 @@ public class SortHashMapByValue {
 
     public static void main(String[] args) {
         getPersionAgeWithFilter();
-        //sortBasedOnValue();
+        sortBasedOnValue();
     }
 
     public static void getPersionAgeWithFilter() {
@@ -18,23 +18,26 @@ public class SortHashMapByValue {
         ages.put("Mary", 25);
         ages.put("Peterson", 40);
         ages.put("Jinny", 35);
+
         int result = ages.entrySet().stream()
                 .filter(entry -> entry.getValue() > 30)
                 .mapToInt(entry -> entry.getValue())
                 .sum();
+        System.out.println(result);
+
         System.out.println(ages.entrySet().stream()
                 .filter(entry -> entry.getValue() > 30).collect(Collectors.toMap(Map.Entry::getKey,Map.Entry::getValue)));
         /* How to use comparingByKey()
         System.out.println(ages.entrySet().stream()
                 .filter(entry -> entry.getValue() > 30).collect(Collectors.toMap(Map.Entry.comparingByKey().reversed())).;*/
-        System.out.println(result);
     }
     public static void sortBasedOnValue(){
         Map<String, Integer> hm = new HashMap();
         hm.put("a", 2);
         hm.put("c", 1);
         hm.put("b", 3);
-        LinkedHashMap lhm = hm.entrySet().stream().sorted((e1, e2) -> e1.getValue().compareTo(e2.getValue())).
+        LinkedHashMap lhm = hm.entrySet().stream().
+                //sorted((e1, e2) -> e1.getValue().compareTo(e2.getValue())).
                 collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (c1, c2) -> c1, LinkedHashMap::new));
        /* LinkedHashMap lhm = hm.entrySet().stream().sorted((e1, e2) -> {
                     return e1.getValue() - e2.getValue();

@@ -14,6 +14,7 @@ public class FilterTest {
         productsList.add(new Product(4,"Sony Laptop",28000f));
         productsList.add(new Product(5,"Apple Laptop",90000f));
 
+        System.out.println(productsList.stream().filter(c -> c.price>20000).map(p->p.price).collect(Collectors.toList()));
 
         //productsList.stream().filter(p->p.price>2000f).map(p->p.price).collect(Collectors.toList());
         List<Float> productPriceList2 =productsList.stream()
@@ -32,4 +33,5 @@ class Product{
         this.name = name;
         this.price = price;
     }
+
 }

@@ -42,5 +42,6 @@ public class DistinctAndSets {
         namesMap.put(2, "Steve");
         namesMap.put(3, "James");
         namesMap.forEach((key,val)-> System.out.println(key+"  " +val));
+        System.out.println(namesMap.entrySet().stream().collect(Collectors.toList()));
     }
 }
