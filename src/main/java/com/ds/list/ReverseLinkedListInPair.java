@@ -8,11 +8,15 @@ import java.util.stream.Stream;
 
 public class ReverseLinkedListInPair {
     public static void main(String[] args) {
-        List al=Stream.builder().add(1).add(2).add(3).add(4).add(5).add(6).build().collect(Collectors.toList());
+        List al = Stream.builder().add(1).add(2).add(3).add(4).add(5).add(6).build().collect(Collectors.toList());
         System.out.println(al);
-        LinkedList ll=new LinkedList();
+        LinkedList ll = new LinkedList();
         for (int i = 0; i < al.size(); i++) {
+            for (int j = 0; j < 2; j++) {
+                ll.addFirst(al.get(i));
 
+            }
         }
+        System.out.println(ll);
     }
 }
