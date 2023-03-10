@@ -24,5 +24,6 @@ public class CreateThreadWithJava8 {
         t2.start();
         t3.start();
 
+
     }
 }
