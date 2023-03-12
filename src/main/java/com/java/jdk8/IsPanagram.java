@@ -7,15 +7,39 @@ public class IsPanagram {
     public static void main(String[] args) {
         String str = "The quick brown fox jumps over the lazy 1og";
         System.out.println(testIsAnagram());
-        System.out.println(testWithIndex(str));
-        System.out.println(testIsPanagram(str));
+        //System.out.println(testWithIndex(str));
+        // System.out.println(testIsPanagram(str));
     }
 
     private static boolean testIsAnagram() {
-        String str1 = "Race";
-        String str2 = "Care";
-        return Arrays.stream(str1.toLowerCase().split("")).collect(Collectors.toSet())
-                .equals(Arrays.stream(str2.toLowerCase().split("")).collect(Collectors.toSet()));
+
+       /* Arrays.stream(str1.toLowerCase().split("")).collect(Collectors.toSet())
+                .equals(Arrays.stream(str2.toLowerCase().split("")).collect(Collectors.toSet()));*/
+        boolean isAna=true;
+        String str1 = "race";
+        String str2 = "care";
+        int[] isAna1 = new int[265];
+        int[] isAna2 = new int[265];
+        if (str1.length() != str1.length()) {
+            isAna=false;
+        }
+        if (str1.length() == str1.length()) {
+            for (int i = 0; i < str1.length() && i < str2.length(); i++) {
+                isAna1[str1.charAt(i)]++;
+                isAna2[str2.charAt(i)]++;
+
+            }
+            System.out.println(Arrays.stream(isAna1).boxed().collect(Collectors.toList()).equals(Arrays.stream(isAna2).boxed().collect(Collectors.toList())));
+
+            for (int i = 0; i < isAna1.length; i++) {
+                if (isAna1[i] != isAna2[i]) {
+                    //System.out.println("str1 " + isAna1[i]);
+                    isAna=false;
+                   // System.out.println("str2 " + isAna2[i]);
+                }
+            }
+        }
+        return isAna;
 
     }
 
