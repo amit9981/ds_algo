@@ -9,7 +9,7 @@ public class CheckSubsequenceOfList {
 //        seq=[1, 6, -1, 10]
 //        o/p=true
 
-        System.out.println(isValidSubsequence(Arrays.asList(1,2,3,4,5),Arrays.asList(1,5,6,7)));
+        System.out.println(isValidSubsequence(Arrays.asList(5, 1, 22, 25, 6, -1, 8, 10),Arrays.asList(1,6, -1, 10)));
     }
     public static boolean isValidSubsequence(List<Integer> array, List<Integer>sequence){
         int arrIndex=0;

@@ -12,10 +12,7 @@ public class ReverseLinkedListInPair {
         System.out.println(al);
         LinkedList ll = new LinkedList();
         for (int i = 0; i < al.size(); i++) {
-            for (int j = i; j <=i; j++) {
                 ll.addFirst(al.get(i));
-
-            }
         }
         System.out.println(ll);
     }
