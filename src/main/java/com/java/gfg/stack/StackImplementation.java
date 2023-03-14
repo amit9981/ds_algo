@@ -11,7 +11,7 @@ public class StackImplementation {
                 char ch = x.charAt(i);
                 if(ch=='(' || ch=='[' || ch=='{') {
                     stack.push(ch);
-                    continue;
+                  //  continue;
                 }
                 if(stack.isEmpty()) return false;
 
@@ -27,6 +27,6 @@ public class StackImplementation {
         }
 
     public static void main(String[] args) {
-        System.out.println(ispar("="));
+        System.out.println(ispar("{()}"));
     }
 }
