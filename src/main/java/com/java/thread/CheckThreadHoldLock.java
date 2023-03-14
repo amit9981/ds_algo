@@ -14,7 +14,7 @@ public class CheckThreadHoldLock {
             @Override
             public void run() {
                 System.out.println("main ");
-                CheckThreadHoldLock check=new CheckThreadHoldLock();
+                CheckThreadHoldLock check =new CheckThreadHoldLock();
             }
         });
         t.start();
