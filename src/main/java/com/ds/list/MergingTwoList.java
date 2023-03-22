@@ -1,12 +1,9 @@
 package com.ds.list;
 
-import com.sun.xml.internal.ws.binding.FeatureListUtil;
 
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-
-import static java.util.Collections.*;
 
 public class MergingTwoList {
     public static void main(String[] args) {
