@@ -6,30 +6,50 @@ import java.util.stream.Collectors;
 public class ReverseString {
     public static void main(String[] args) {
         String str = "This is India";
-        if(str.contains(" ")) {
-            System.out.println(wordByWordReverse(str));
+       /* String str = "India";
+        String str = "1,2,3,4";*/
+        WordPattern stringType;
+      boolean b=  Character.isLetter(str.charAt(0));
+         if(str.contains(" ")) {
+             stringType = WordPattern.STR;
+        }else if(b){
+             stringType = WordPattern.CHAR;
         }else {
-            System.out.println(charByCharReverse("Amit"));
+             stringType = WordPattern.NUM;
+         }
+        switch (stringType) {
+            case STR:
+                wordByWordReverse(str);
+                break;
+            case CHAR:
+                charByCharReverse(str);
+                break;
+            case NUM:
+                System.out.println("You choose AUDI !");
+                break;
         }
     }
+        private static void wordByWordReverse (String str){
+            LinkedList<String> ll = Arrays.stream(str.split(" ")).collect(Collectors.toCollection(LinkedList::new));
+            LinkedList<String> resultList = new LinkedList();
+            for (String s :
+                    ll) {
+                resultList.addFirst(s);
+            }
+            System.out.println(resultList);
+        }
 
-    private static String wordByWordReverse(String str) {
-        LinkedList<String> ll = Arrays.stream(str.split(" ")).collect(Collectors.toCollection(LinkedList::new));
-        LinkedList<String> resultList = new LinkedList();
-        for (String s :
-                ll) {
-            resultList.addFirst(s);
+        private static void charByCharReverse (String str){
+            LinkedList<String> ll = Arrays.stream(str.split("")).collect(Collectors.toCollection(LinkedList::new));
+            LinkedList resultList = new LinkedList();
+            for (String al :
+                    ll) {
+                resultList.addFirst(al);
+            }
+            System.out.println(resultList);
         }
-        return resultList.toString();
-    }
+        enum WordPattern {
+            NUM, STR, CHAR;
+        }
 
-    private static String charByCharReverse(String str) {
-        LinkedList<String> ll = Arrays.stream(str.split("")).collect(Collectors.toCollection(LinkedList::new));
-        LinkedList resultList = new LinkedList();
-        for (String al :
-                ll) {
-            resultList.addFirst(al);
-        }
-        return resultList.toString();
-    }
 }
