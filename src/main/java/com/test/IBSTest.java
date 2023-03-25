@@ -33,7 +33,10 @@ public class IBSTest {
                 .stream()
                 .sorted((str1, str2) -> str1.length() - str2.length())
                 .collect(Collectors.toList());
-
+strList.stream().sorted((s1,s2)->Integer.compare(s1.length(),s2.length())).collect(Collectors.toList());
+        System.out.println("====");
+        System.out.println(strList.stream().max((s1,s2)->s1.compareTo(s2)).get());
+        System.out.println(strList.stream().max((s1,s2)->Integer.compare(s1.length(),s2.length())).get());
         System.out.println(ascSortedList);
 
 
