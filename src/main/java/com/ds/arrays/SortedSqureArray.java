@@ -12,6 +12,7 @@ public class SortedSqureArray {
         }
         System.out.println(Arrays.toString(newArray));
         Arrays.stream(newArray).forEach(s -> System.out.println(s+1));
+
 //Stream
 /*        for (int i = 0; i < newArray.length; i++) {
 
