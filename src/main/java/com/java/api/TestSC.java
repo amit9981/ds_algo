@@ -23,6 +23,7 @@ public class TestSC {
             a*=10;
                a+=(int)iterator.next();
 
+
              }
         while (iterator2.hasNext()){
             b*=10;

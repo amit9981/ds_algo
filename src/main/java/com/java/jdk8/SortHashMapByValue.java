@@ -26,7 +26,7 @@ public class SortHashMapByValue {
         System.out.println(result);
 
         System.out.println(ages.entrySet().stream()
-                .filter(entry -> entry.getValue() > 30).collect(Collectors.toMap(Map.Entry::getKey,Map.Entry::getValue)));
+                .filter(entry -> entry.getValue() > 30).sorted(Map.Entry.comparingByValue()).collect(Collectors.toMap(Map.Entry::getKey,Map.Entry::getValue)));
         /* How to use comparingByKey()
         System.out.println(ages.entrySet().stream()
                 .filter(entry -> entry.getValue() > 30).collect(Collectors.toMap(Map.Entry.comparingByKey().reversed())).;*/
