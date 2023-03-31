@@ -8,8 +8,9 @@ import java.util.stream.Stream;
 public class MergingTwoList {
     public static void main(String[] args) {
         //mergeTwoList();
-         reverseListFromKthElement();
+        // reverseListFromKthElement();
         alterNateList();
+        //reverseListInPair();
     }
 
     public static void reverseListInPair() {
@@ -45,8 +46,8 @@ public class MergingTwoList {
         List<Integer> l2 = Arrays.asList(2, 4, 6, 7, 8, 9);
         LinkedList l = new LinkedList();
         ArrayList al = new ArrayList();
-        l.add(0);
-        l.add(10);
+       // l.add(0);
+        //l.add(10);
         // Stream.concat(l1.stream(), l2.stream()).collect(Collectors.toList());
         // 1 Way
         List<Integer> finalResult = (List) Stream.concat(l1.stream(), l2.stream()).collect(Collectors.toList());
