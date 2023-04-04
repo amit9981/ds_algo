@@ -44,4 +44,21 @@ public class DistinctAndSets {
         namesMap.forEach((key,val)-> System.out.println(key+"  " +val));
         System.out.println(namesMap.entrySet().stream().collect(Collectors.toList()));
     }
+
+    @Test
+    public  void mapSortByKey() throws IOException {
+        Map<Integer, String> namesMap = new HashMap<>();
+        namesMap.put(1, "Larry");
+        namesMap.put(2, "Steve");
+        namesMap.put(3, "James");
+       // namesMap.forEach((key,val)-> System.out.println(key+"  " +val));
+        System.out.println(namesMap.entrySet().stream().collect(Collectors.toList()));
+    }
 }
+//how to iterate map
+/* sort map by key and value
+based on highest value find key
+longest sub string
+2nd highest sal emp name in java8
+
+* */

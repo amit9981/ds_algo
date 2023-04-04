@@ -11,7 +11,7 @@ public class LogestPalidromicSubString {
                 + longestPalSubstr(str));
       //  CopyOnWriteArrayList
                 ConcurrentHashMap chm=new ConcurrentHashMap();
-            m1(10);
+           // m1(10);
         //Segment  s=new Segment()
     }static int longestPalSubstr(String str)
     {

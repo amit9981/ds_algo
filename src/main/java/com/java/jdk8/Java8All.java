@@ -35,6 +35,7 @@ public class Java8All {
                 .reduce((a, b) -> a + b);
         System.out.println(result);
     }
+
     public static void sortBasedOnValue(){
         Map<String, Integer> hm = new HashMap();
         hm.put("a", 2);

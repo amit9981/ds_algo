@@ -81,7 +81,7 @@ strList.stream().sorted((s1,s2)->Integer.compare(s1.length(),s2.length())).colle
             // If not printed earlier,
             // then print it
             if (i == j)
-                System.out.print(arr[i] + " ");
+                System.out.print("hi "+arr[i] + " ");
         }
     }
 

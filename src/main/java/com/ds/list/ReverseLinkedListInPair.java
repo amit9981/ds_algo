@@ -15,6 +15,7 @@ public class ReverseLinkedListInPair {
             for (int j = i; j >i-2; j--) {
                 ll.add(al.get(j));
 
+
             }
         }
 
