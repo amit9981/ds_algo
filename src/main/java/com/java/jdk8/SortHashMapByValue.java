@@ -37,7 +37,7 @@ public class SortHashMapByValue {
         hm.put("c", 1);
         hm.put("b", 3);
         LinkedHashMap lhm = hm.entrySet().stream().
-                //sorted((e1, e2) -> e1.getValue().compareTo(e2.getValue())).
+                sorted((e1, e2) -> e1.getValue().compareTo(e2.getValue())).
                 collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (c1, c2) -> c1, LinkedHashMap::new));
        /* LinkedHashMap lhm = hm.entrySet().stream().sorted((e1, e2) -> {
                     return e1.getValue() - e2.getValue();

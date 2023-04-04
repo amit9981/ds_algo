@@ -8,7 +8,7 @@ public class IsPanagram {
         String str = "The quick brown fox jumps over the lazy 1og";
         System.out.println(testIsAnagram());
         //System.out.println(testWithIndex(str));
-        // System.out.println(testIsPanagram(str));
+         System.out.println(testIsPanagram(str));
     }
 
     private static boolean testIsAnagram() {
