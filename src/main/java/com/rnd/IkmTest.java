@@ -1,7 +1,7 @@
 package com.rnd;
 
-public class IkmTest {
-    public IkmTest() {
+ public class IkmTest {
+    private IkmTest() {
         this(10);
     }
     public IkmTest(int data) {
@@ -25,5 +25,11 @@ public class IkmTest {
         IkmTest t = new IkmTest();
         t.display();
         System.out.println("data = " + data);
+    }
+    class B extends IkmTest{
+        public static void main(String[] args) {
+            IkmTest b= new IkmTest();
+        }
+
     }
 }
