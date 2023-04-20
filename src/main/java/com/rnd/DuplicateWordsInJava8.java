@@ -20,7 +20,7 @@ public class DuplicateWordsInJava8 {
                 ));
         System.out.println(ll.stream()
                 .collect(Collectors.groupingBy(Function.identity(), Collectors.counting())));
-
+        System.out.println("my "+Arrays.stream(str.split(" ")).collect(Collectors.groupingBy(Function.identity(),Collectors.counting())));
           //System.out.println(ll.stream().filter(company -> Collections.frequency(ll, company) > 1).collect(Collectors.toMap(Function.identity(),Function.identity())));
     }
 }
