@@ -53,7 +53,7 @@ public class Java8All {
     public static void getPersionAgeWithFilter() {
         Map<String, Integer> ages = new HashMap<>();
         ages.put("Robert", 30);
-        ages.put("Mary", 25);
+        ages.put("mary", 25);
         ages.put("Peterson", 40);
         ages.put("Jinny", 35);
 
@@ -76,5 +76,6 @@ public class Java8All {
                         } // generating random numbers between 0 and 99
                 ).limit(5).forEach(System.out::println);
                 Stream.builder().add(1).add(4).add(2).build().collect(Collectors.toList()).stream().forEach(n-> System.out.print(n+ " "));
+
     }
 }
