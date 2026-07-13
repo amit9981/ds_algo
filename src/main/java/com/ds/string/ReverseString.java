@@ -5,9 +5,9 @@ import java.util.stream.Collectors;
 
 public class ReverseString {
     public static void main(String[] args) {
-        String str = "This is India";
-       /* String str = "India";
-        String str = "1,2,3,4";*/
+        //String str = "This is India";
+        //String str = "India";
+        String str = "1,2,3,4";
         WordPattern stringType;
       boolean b=  Character.isLetter(str.charAt(0));
          if(str.contains(" ")) {
@@ -30,6 +30,9 @@ public class ReverseString {
         }
     }
         private static void wordByWordReverse (String str){
+/*List l=  Arrays.asList(str.split(" "));
+Collections.reverse(l);*/
+          // LinkedList l= Arrays.stream(str.split(" ")).collect(Collectors.toList());
             LinkedList<String> ll = Arrays.stream(str.split(" ")).collect(Collectors.toCollection(LinkedList::new));
             LinkedList<String> resultList = new LinkedList();
             for (String s :
