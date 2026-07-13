@@ -22,10 +22,14 @@ public class DistinctAndSets {
 
     @Test
     public void distinctWithSet() {
-        List<Integer> numbers = Arrays.asList(1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 9, 9, 9);
+        List<Integer> numbers = Arrays.asList(1, 1, 2, 2, 3, 9, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 9, 9, 9);
         Set<Integer> distinct = numbers.stream().collect(Collectors.toSet());
         assertThat(distinct).hasSize(9);
         System.out.println(distinct);
+        //numbers.stream().collect(Collectors.toSet());
+
+        System.out.println(numbers.stream().sorted().distinct().collect(Collectors.toList()));
+        System.out.println(numbers.stream().distinct().sorted(Comparator.reverseOrder()).filter(n->n%2==0).collect(Collectors.toList()));
     }
 
     @Test

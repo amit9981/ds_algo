@@ -15,14 +15,16 @@ public class FibonacciDP {
  }*/
   public static void main(String[] args) {
       System.out.println(fibMemorized(6,new int[7]));
-     // System.out.println(fib(6));
+      //System.out.println(fib(6));
+      System.out.println(fib(6));
+
 
   }
   public static int fib(int n){
       if(n==0||n==1){
           return n;
       }
-      System.out.println("hello "+n);
+      //System.out.println("hello "+n);
       int fibnum1=fib(n-1);
       int fibnum2=fib(n-2);
       int fibnum=fibnum1+fibnum2;
