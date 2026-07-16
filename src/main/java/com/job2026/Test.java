@@ -19,20 +19,20 @@ public class Test {
 
 
 
-    /*public static void main(String[] args) {
-        int sum=10;
-        HashMap hashMap=new HashMap();
-        List ll= Arrays.asList(1,4,2,5,3,6,8,9);
-        for (int i = 0; i <ll.size() ; i++) {
-            int sub=sum-(Integer) ll.get(i);
-if(hashMap.containsKey(ll.get(i))){
-    System.out.println("the Give values are ::"+ll.get(i)+" and "+sub);
-    System.out.println(hashMap.get(ll.get(i)));
-}else
-    hashMap.put(sub,i);
-            //System.out.println(sub);
+        /*public static void main(String[] args) {
+            int sum=10;
+            HashMap hashMap=new HashMap();
+            List ll= Arrays.asList(1,4,2,5,3,6,8,9);
+            for (int i = 0; i <ll.size() ; i++) {
+                int sub=sum-(Integer) ll.get(i);
+    if(hashMap.containsKey(ll.get(i))){
+        System.out.println("the Give values are ::"+ll.get(i)+" and "+sub);
+        System.out.println(hashMap.get(ll.get(i)));
+    }else
+        hashMap.put(sub,i);
+                //System.out.println(sub);
+            }
+            System.out.println(hashMap);
         }
-        System.out.println(hashMap);
-    }
-*/
+    */
 }
