@@ -21,7 +21,7 @@ public class GitAutomation {
                     .inheritIO()
                     .start();
 
-            //int exitCode = push.waitFor();
+            int exitCode = push.waitFor();
 
             System.out.println("Exit Code: " + "pushed");
         }
