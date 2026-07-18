@@ -17,7 +17,7 @@ public class GitAutomation {
                     .start();
             commit.waitFor();
 
-            Process push = new ProcessBuilder("git", "push")
+            Process push = new ProcessBuilder("git", "push","Hello@123")
                     .inheritIO()
                     .start();
 
