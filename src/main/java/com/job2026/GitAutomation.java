@@ -9,8 +9,20 @@ public class GitAutomation {
             System.out.println("Please provide message");
             String commitMsg=sc.nextLine();
             new ProcessBuilder("git", "add", ".").start();
-            new ProcessBuilder("git", "commit", "-m", commitMsg).start();
+            /*new ProcessBuilder("git", "commit", "-m", commitMsg).start();
             new ProcessBuilder("git", "push").start();
+            */
+            Process commit = new ProcessBuilder("git", "commit", "-m", commitMsg)
+                    .inheritIO()
+                    .start();
+            commit.waitFor();
+
+            Process push = new ProcessBuilder("git", "push")
+                    .inheritIO()
+                    .start();
+
+            int exitCode = push.waitFor();
+
             System.out.println("Exit Code: " + "pushed");
         }
 }
