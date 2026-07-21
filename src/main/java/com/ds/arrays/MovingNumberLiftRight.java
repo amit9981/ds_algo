@@ -1,7 +1,7 @@
 package com.ds.arrays;
 
 import java.util.Arrays;
-
+//ToDO
 public class MovingNumberLiftRight {
     static void rearrange(int arr[], int n)
     {
