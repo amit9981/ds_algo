@@ -5,9 +5,11 @@ import java.util.Scanner;
 public class GitAutomation {
 
         public static void main(String[] args) throws InterruptedException, IOException {
+            Scanner sc=new Scanner(System.in);
+            System.out.println("Please provide commit message");
+            String commitMsg=sc.nextLine();
             new ProcessBuilder("git", "add", ".").start();
-
-            Process commit = new ProcessBuilder("git", "commit", "-m", "commitMsg")
+            Process commit = new ProcessBuilder("git", "commit", "-m", commitMsg)
                     .inheritIO()
                     .start();
             commit.waitFor();

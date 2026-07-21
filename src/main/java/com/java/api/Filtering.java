@@ -26,7 +26,7 @@ public class Filtering {
 
     }
     @Test
-    public void filterPersion() throws Exception {
+    public void filterPerson() throws Exception {
         List<Person> personList = MockData.getPeople();
         personList.stream()
                 .filter(p -> p.getGender()=="Male")
@@ -49,8 +49,9 @@ public class Filtering {
         Stream.of(2, 4, 6, 7, 9, 10, 12).dropWhile(n -> n % 2 == 0)
                 .forEach(n -> System.out.print(n + " "));
         System.out.println();
+        //Stream.of("1").
         Stream<Integer> unorderedList = Stream.of(31, 5, 7, 18, 12, 6, 2, 1, 16, 51);
-        unorderedList.dropWhile(num -> num < 10).forEach(num -> System.out.print(num + " "));
+        unorderedList.dropWhile(num -> num > 10).forEach(num -> System.out.print(num + " "));
 
     }
 
@@ -65,21 +66,21 @@ public class Filtering {
         System.out.println();
         System.out.println("using take while");
         Stream.of(2, 4, 6, 8, 9, 10, 12).takeWhile(n -> n % 2 == 0)
-                .forEach(n -> System.out.print(n + " "));
+                .forEach(n -> System.out.print(" "));
         Stream<Integer> unorderedList = Stream.of(2, 5, 7, 18, 12, 6, 2, 1, 16, 51);
         unorderedList.takeWhile(n -> n % 2 == 0).forEach(System.out::println);
     }
 
     @Test
     public void MyInterface2() {
-        ToDoubleFunction<String> length = x -> x.length();
+        ToDoubleFunction<String> length = y -> y.length();
         System.out.println(length.applyAsDouble("This is an example of predefined functional interface."));
     }
 
     @Test
     public void findFirst() {
         int[] numbers = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-        int result = Arrays.stream(numbers).filter(n -> n == 50)
+        int result = Arrays.stream(numbers).filter(n -> n == 5)
                 .findFirst()
                 .orElse(-1);
         System.out.println(result);

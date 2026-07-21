@@ -6,7 +6,15 @@ import java.util.List;
 
 public class Test {
     public static void main(String[] args) {
-        System.out.println("Hello : "+isValidSubsequence(Arrays.asList(1,2,3,7,5),Arrays.asList(7,3)));
+       // System.out.println("Hello : "+isValidSubsequence(Arrays.asList(1,2,3,7,5),Arrays.asList(7,3)));
+        swap(10,20);
+    }
+    public static void swap(int a,int b){
+        b=b-a;
+        a=a+b;
+
+        System.out.println(a);
+        System.out.println(b);
 
     }
     public static boolean isValidSubsequence(List<Integer> array, List<Integer> sequence) {
