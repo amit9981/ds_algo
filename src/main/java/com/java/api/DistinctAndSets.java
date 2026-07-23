@@ -60,6 +60,10 @@ public class DistinctAndSets {
         System.out.println(namesMap.entrySet().stream().collect(Collectors.toList()));
         System.out.println(namesMap.keySet().stream().collect(Collectors.toList()));
     }
+   /* @Test
+    public void duplicateCharacter(){
+        MockData.getCars().stream().sorted()
+    }*/
 }
 //how to iterate map
 /* sort map by key and value
