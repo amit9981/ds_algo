@@ -17,7 +17,7 @@ public class MaxSubArrayAndSum {
                     currentSum = nums[i];
                     tempStart = i;
                 } else {
-                    currentSum += nums[i];
+                    currentSum =currentSum+ nums[i];
                 }
 
                 if (currentSum > maxSum) {
