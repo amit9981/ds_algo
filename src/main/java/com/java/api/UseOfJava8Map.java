@@ -4,17 +4,30 @@ import com.java.beans.Car;
 import com.java.beans.Person;
 import org.junit.Test;
 
+import java.util.Collections;
 import java.util.List;
+import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
+import static java.util.stream.Collectors.counting;
 import static java.util.stream.Collectors.toList;
 
-public class UseOfJava8Map {
+public class
+UseOfJava8Map {
     @Test
     public void MapUse() throws Exception {
         List<Car> cars = MockData.getCars();
         System.out.println(cars.stream().map(n -> n.getColor()).collect(toList()));
+        System.out.println("check :: "+cars.stream().filter(p->p.getPrice()<999).map(n->n.getColor()).collect(Collectors.toList()));
+        System.out.println("Duplicate Color:: "+cars.stream().distinct().map(p->p.getColor()).collect(Collectors.toList()));
+        String str="aabdknlaadlskflsd";
+        List dl=List.of('a','b','c','c','d','c','a','e','c');
+
+        Stream.of(str).collect(Collectors.groupingBy(Function.identity(),counting()));
+        System.out.println(dl.stream().filter(p->Collections.frequency(dl,p)>1).collect(Collectors.toList()));
+        System.out.println(dl.stream().collect(Collectors.toMap(Function.identity(),p->1,Math::addExact)));
 
         // to set value is list of custom object
        /* List<Employee> l2=list.stream().map(t->{

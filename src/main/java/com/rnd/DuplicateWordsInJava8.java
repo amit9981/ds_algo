@@ -15,8 +15,12 @@ public class DuplicateWordsInJava8 {
         List ll = Arrays.asList('a', 'b', 'c', 'a', 'c');
 
         System.out.println(ll.stream().filter(company -> Collections.frequency(ll, company) > 1).collect(Collectors.toList()));
+
         // 2. get duplicate count using Map and Collectors.toMap()
         //Map<String, Integer> duplicateCountMap = Arrays
+
+        ll.stream().filter(p->Collections.frequency(ll,p)>1).collect(Collectors.toList());
+        System.out.println("test: "+ll.stream().collect(Collectors.groupingBy(Function.identity(),Collectors.counting())));
         System.out.println(ll.stream().collect(Collectors.toMap(Function.identity(), company -> 1, Math::addExact)));
         System.out.println(ll.stream().collect(Collectors.groupingBy(Function.identity(), Collectors.counting())));
         System.out.println("my "+Arrays.stream(str.split(" ")).collect(Collectors.groupingBy(Function.identity(),Collectors.counting())));
