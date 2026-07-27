@@ -13,7 +13,8 @@ public class LogestPalidromicSubString {
                 ConcurrentHashMap chm=new ConcurrentHashMap();
            // m1(10);
         //Segment  s=new Segment()
-    }static int longestPalSubstr(String str)
+    }
+    static int longestPalSubstr(String str)
     {
         int n = str.length(); // calculcharAting size of string
         if (n < 2)
