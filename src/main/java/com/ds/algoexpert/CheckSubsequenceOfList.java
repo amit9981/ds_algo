@@ -11,8 +11,19 @@ public class CheckSubsequenceOfList {
 
         System.out.println(isValidSubsequence(Arrays.asList(5, 1, 22, 25, 6, -1, 8, 10),Arrays.asList(1,6, -1, 10)));
     }
-    public static boolean isValidSubsequence(List<Integer> array, List<Integer>sequence){
-        int arrIndex=0;
+    public static boolean isValidSubsequence(List<Integer> array, List<Integer>sequence) {
+
+        int i = 0;
+        int j = 0;
+        while (i < array.size() && j < sequence.size()) {
+            if (array.get(i) == sequence.get(j)) {
+                j++;
+            }
+            i++;
+        }
+        return j == sequence.size();
+    }
+        /*int arrIndex=0;
         int seqIndex=0;
         while (arrIndex<array.size()&&seqIndex<sequence.size()){
             if(array.get(arrIndex).equals(sequence.get(seqIndex))){
@@ -21,6 +32,9 @@ public class CheckSubsequenceOfList {
             arrIndex++;
         }
   return seqIndex==sequence.size();
+  }
+  */
 
-    }
+
+
 }

@@ -33,7 +33,33 @@ public class MovingNumberLiftRight {
         int arr[] = { -1, 2, -3, 4, 5, 6, -7, 8, 9 };
         int n = arr.length;
 
-        rearrange(arr, n);
-        printArray(arr, n);
+        //rearrange(arr, n);
+        //printArray(arr, n);
+        shiftingLeftToRight();
     }
+    //shifting all the negative number in left
+    public static void shiftingLeftToRight(){
+        int[] arr = { -1, 2, -3, 4, 5, 6, -7, 8, 9 };
+
+        int negativeIndex = 0;
+
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] < 0) {
+                int temp = arr[i];
+
+                // Shift elements right
+                for (int j = i; j > negativeIndex; j--) {
+                    arr[j] = arr[j - 1];
+                }
+
+                arr[negativeIndex] = temp;
+                negativeIndex++;
+            }
+        }
+
+        for (int num : arr) {
+            System.out.print(num + " ");
+        }
+    }
+
 }
