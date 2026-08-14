@@ -1,0 +1,317 @@
+
+ Given Input: arr=[5, 1, 22, 25, 6, -1, 8, 10] seq=[1, 6, -1, 10]
+ Output:=true
+        int arrIndex=0, seqIndex=0;
+        while (arrIndex<arr.size()&&seqIndex<seq.size()){
+            if(arr.get(arrIndex).equals(seq.get(seqIndex))){
+                seqIndex++;
+            }
+            arrIndex++;
+        }
+  return seqIndex==seq.size();
+  }
+  ***********************************************************
+  ProductExceptSelf
+  Given Input :int[] nums = {1, 2, 3, 4};
+  Output : {24,12,8,6}
+
+          int n = nums.length;
+          int[] result = new int[n];
+          // Store left products
+          result[0] = 1;
+          for (int i = 1; i < n; i++) { //i=1;2
+              result[i] = result[i - 1] * nums[i - 1];
+          }
+          // Multiply with right products
+          int rightProduct = 1;
+          for (int i = n - 1; i >= 0; i--) {
+              result[i] =result[i]*rightProduct;
+              rightProduct =rightProduct* nums[i];
+          }
+            return result;
+      }
+***********************************************************
+  Reverse Adjectent
+    Given Input :int[] nums = {1,2,3,4,5,6};
+    Output : {2,1,4,3,6,5}
+
+ public static void reverseAdj(int arr[],int m){
+        int temp;
+        for (int i = 0; i < arr.length; i+=2) {
+           temp=arr[i];
+           arr[i]=arr[i+1];
+           arr[i+1]=temp;
+        }
+        System.out.println(arr.toString());
+    }
+***********************************************************
+Reverse K set of group ex:3
+    Given Input :int[] nums = {1,2,3,4,5,6};
+    Output : {3,2,1,6,5,4}
+
+  public static void reverseKGroupSet(int[] arr, int k) {
+         for (int i = 0; i < arr.length; i += k) {
+             int left = i;
+             int right = Math.min(i + k - 1, arr.length - 1);
+           while (left < right) {
+                 int temp = arr[left];
+                 arr[left] = arr[right];
+                 arr[right] = temp;
+                 left++;
+                 right--;
+             }
+         }
+     }
+***********************************************************
+Reverse second with last
+    Given Input :int[] nums = {1,2,3,4,5,6};
+    Output : {1,6,2,5,3,4}
+
+  public static void firstAndLast(int[] arr) {
+        int length=arr.length;
+       int[] result=new int[length];
+       int left=0;
+       int right=length-1;
+        for (int i = 0; i < length; i+=2) {
+            result[i]=arr[left];
+            result[i+1]=arr[right];
+            left++;
+            right--;
+        }
+        System.out.println(Arrays.toString(result));
+    }
+***********************************************************
+Maximum sub array sum and ranges
+    Given Input :int[] nums = {-2,1,-3,4,-1,2,1,-5,4};
+    Output : Maximum Sum = 6
+             Subarray = [4, -1, 2, 1]
+
+public static void maxSubArray(int[] nums) {
+            int currentSum = nums[0];
+            int maxSum = nums[0];
+            int start =0,end=0 ,tempStart = 0;
+
+            for (int i = 1; i < nums.length; i++) {
+                if (nums[i] > currentSum + nums[i]) {
+                    currentSum = nums[i];
+                    tempStart = i;
+                } else {
+                    currentSum =currentSum+ nums[i];
+                }
+                if (currentSum > maxSum) {
+                    maxSum = currentSum;
+                    start = tempStart;
+                    end = i;
+                }
+            }
+            System.out.println("Maximum Sum = " + maxSum);
+            System.out.println("Subarray = " +
+                    Arrays.toString(Arrays.copyOfRange(nums, start, end + 1)));
+        }
+***********************************************************
+Binary Search find element in the list or not and return index
+    Given Input : int[] nums = {4,5,6,7};
+                         int target = 7;
+          OutPut : index 3
+ public static int binarySearch(int[] arr, int target) {
+        int left = 0;
+        int right = arr.length - 1;
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+
+            if (arr[mid] == target) {
+                return mid;
+            }
+            if (arr[mid] < target) {
+                left = mid + 1;
+            } else {
+                right = mid - 1;
+            }
+        }
+        return -1;
+    }
+***********************************************************
+Target number is the sum of two number
+    Given Input :Arrays.asList(1,6,3,4,7,9) target=10
+    Output :6 4
+            3 7
+            1 9
+          if printing->  true
+
+public static boolean isNumberPressent(List l, int target){
+        boolean isPresent=false;
+        Set<Integer> resultSet = new HashSet();
+        for(int i=0; i<l.size() ;i++){
+            int subtract = target- (int)l.get(i);
+            if(resultSet.contains(subtract)){
+                 isPresent=true;
+                System.out.println(subtract+ " "+(l.get(i)));
+            }else{
+                resultSet.add((Integer) l.get(i));
+            }
+        }
+        return isPresent;
+    }
+*************************************************************
+Shifting all the negative values to left and sorting
+Output : -1 -3 -7 2 4 5 6 8 9
+public static void shiftingLeftToRight(){
+        int[] arr = { -1, 2, -3, 4, 5, 6, -7, 8, 9 };
+        int negativeIndex = 0;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] < 0) {
+                int temp = arr[i];
+                // Shift elements right
+                for (int j = i; j > negativeIndex; j--) {
+                    arr[j] = arr[j - 1];
+                }
+                arr[negativeIndex] = temp;
+                negativeIndex++;
+            }
+  }
+***********************************************************
+Let us take arr[] = [1, 2, 3, 4, 5, 6, 7], d = 2.
+
+First Step:
+        => Rotate to left by one position.
+        => arr[] = {2, 3, 4, 5, 6, 7, 1}
+
+Second Step:
+        => Rotate again to left by one position
+        => arr[] = {3, 4, 5, 6, 7, 1, 2}
+
+Rotation is done by 2 times. d=2;
+So the array becomes arr[] = {3, 4, 5, 6, 7, 1, 2}
+
+Program:
+Input: arr[] = [1, 2, 3, 4, 5, 6, 7], d = 2.
+Output : [ 3, 4, 5,6,7,1,2]
+public static void rotate(int[] arr, int d, int n) {
+        int p = 1; //constant
+        while (p<=d) {
+            int last = arr[0];
+            for (int i = 0; i < n - 1; i++) {
+                arr[i] = arr[i + 1];
+            }
+            arr[n-1]=last;
+            p++;
+        }
+        System.out.println(Arrays.toString(arr));
+    }
+***********************************************************
+Input: arr[] = [1, 2, 3, 4, 5, 6, 7], d = 2.
+Output : [6, 7, 1, 2, 3, 4, 5]
+public static void rotatedRight(int arr[],int d,int length){
+        int p=1;
+        while (p<=d){
+            int temp=arr[length-1];
+            for (int i = length-1;i>0; i--) {
+                arr[i]=arr[i-1];
+            }
+            arr[0]=temp;
+            p++;
+        }
+        System.out.println(Arrays.toString(arr));
+    }
+**********************************************************
+Rotated with new Array
+Input: arr[] = [1, 2, 3, 4, 5, 6, 7], d = 2.
+Output : [ 3, 4, 5,6,7,1,2]
+public static void rotateArrayWithNewArray(int arr[],int d,int length){
+        int[] newArr=new int[arr.length];
+        int j=0;
+        for (int i = d; i <length ; i++) {
+            newArr[j]=arr[i];
+            j++;
+        }
+        for (int i = 0; i < d; i++) {
+            newArr[j]=arr[i];
+            j++;
+        }
+        System.out.println(Arrays.toString(newArr));
+    }
+***********************************************************
+Sort the array and remove duplicate element
+without using build in method
+    Given Input :int[] arr = {1, 5, 2, 3, 6, 9, 2, 5};
+    Output :[1,2,3,5,6,9]
+private static int[] sortedArray(int[] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = i + 1; j < arr.length; j++) {
+                if (arr[i] > arr[j]) {
+                    int temp = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = temp;
+                }
+            }
+        }
+        return arr;
+    }
+
+    private static int[] removingDuplicate(int[] sortedArr) {
+        int[] dArr = new int[sortedArr.length];
+        int z = 0;
+        boolean flag = false;
+        for (int i = 0; i < sortedArr.length; i++) {
+            for (int j = i + 1; j < sortedArr.length; j++) {
+                flag = false;
+                if (sortedArr[j] - sortedArr[i] == 0) {
+                    flag = true;
+                    break;
+                }
+            }
+            if (flag) {
+                i++;
+            }
+            dArr[z] = sortedArr[i];
+            z++;
+        }
+        return dArr;
+    }
+
+
+***********************************************************
+Longest PalidromicSubArray
+Input :   String str = "KNITINABC";
+OutPut : Longest palindrome substring is: NITIN
+         Length is: 5
+
+ public static void main(String[] args) {
+        String str = "KNITINABC";
+        System.out.println("Length is: "
+                + longestPalSubstr(str));
+    }
+    static int longestPalSubstr(String str)
+    {
+        int n = str.length(); // calculcharAting size of string
+        if (n < 2)
+            return n; // if string is empty then size will be 0.
+        // if n==1 then, answer will be 1(single
+        // character will always palindrome)
+
+        int maxLength = 1,start=0;
+        int low, high;
+        for (int i = 0; i < n; i++) {
+            low = i - 1;
+            high = i + 1;
+            while ( high < n && str.charAt(high) == str.charAt(i)) //increment 'high'
+                high++;
+            while ( low >= 0 && str.charAt(low) == str.charAt(i)) // decrement 'low'
+                low--;
+            while (low >= 0 && high < n && str.charAt(low) == str.charAt(high) ){
+                low--;
+                high++;
+            }
+            int length = high - low - 1;
+            if (maxLength < length){
+                maxLength = length;
+                start=low+1;
+            }
+        }
+        System.out.print("Longest palindrome substring is: ");
+        System.out.println(str.substring(start, start + maxLength ));
+        return maxLength;
+    }
+*****************************************************************************
+
+

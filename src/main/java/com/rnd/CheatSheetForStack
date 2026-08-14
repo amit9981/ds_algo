@@ -1,0 +1,134 @@
+***********************************************************
+validate the ValidPatternForStack
+    Given Input :"([]{})"
+    Output : true
+             Subarray = [4, -1, 2, 1]
+public static boolean isValid(String s) {
+            Stack<Character> stack = new Stack<>();
+            for(int i=0;i<s.length();i++) {
+                char ch = s.charAt(i);
+                if(ch=='(' || ch=='[' || ch=='{') {
+                    stack.push(ch);
+                    continue;
+                }
+                if(stack.isEmpty()) return false;
+                char poppedChar = stack.pop();
+
+                if(ch == ')' && poppedChar != '(') {return false;}
+                if(ch == ']' && poppedChar != '[') {return false;}
+                if(ch == '}' && poppedChar != '{') {return false;}
+            }
+            return stack.isEmpty();
+        }
+***********************************************************
+Using stack perform the given operation in number
+    Given Input :String str = "100 200 + 2 / 5 * 7 +";
+    Output : 757
+public static int evaluatePostfix(String expression) {
+            Stack<Integer> stack = new Stack<>();
+            String[] tokens = expression.split(" ");
+            for (String token : tokens) {
+                switch (token) {
+                    case "+":
+                        stack.push(stack.pop() + stack.pop());
+                        break;
+                    case "-":
+                        int b = stack.pop();
+                        int a = stack.pop();
+                        stack.push(a - b);
+                        break;
+                    case "*":
+                        stack.push(stack.pop() * stack.pop());
+                        break;
+                    case "/":
+                        int divisor = stack.pop();
+                        int dividend = stack.pop();
+                        stack.push(dividend / divisor);
+                        break;
+                    default:
+                        stack.push(Integer.parseInt(token));
+                }
+            }
+            return stack.pop();
+        }
+***********************************************************
+Using stack create custom queue
+
+public class QueueUsingStack {
+            static Stack<Integer> s1 = new Stack<Integer>();
+            static Stack<Integer> s2 = new Stack<Integer>();
+            static void enQueue(int x) {
+                // Move all elements from s1 to s2
+                while (!s1.isEmpty()) {
+                    s2.push(s1.pop());
+                }
+                // Push item into s1
+                s1.push(x);
+                // Push everything back to s1
+                while (!s2.isEmpty()) {
+                    s1.push(s2.pop());
+                    //s2.pop();
+                }
+            }
+            // Dequeue an item from the queue
+            static int deQueue() {
+                // if first stack is empty
+                if (s1.isEmpty()) {
+                    System.out.println("Q is Empty");
+                    System.exit(0);
+                }
+                // Return top of s1
+                int x = s1.peek();
+                s1.pop();
+                return x;
+            }
+        public static void main(String[] args){
+        QueueUsingStack q = new QueueUsingStack();
+            q.enQueue(1);
+            q.enQueue(2);
+            q.enQueue(3);
+            System.out.println(q.deQueue());
+            System.out.println(q.deQueue());
+            System.out.println(q.deQueue());
+        }
+}
+***********************************************************
+Create custom stack
+
+public class CustomStack<T> {
+        private ArrayList<T> data;
+        public CustomStack() {
+            data = new ArrayList<T>();
+        }
+        public void push(T element) {
+            data.add(element);
+        }
+        public T pop() {
+            if (isEmpty()) {
+                throw new IllegalStateException("Stack is empty");
+            }
+            return data.remove(data.size() - 1);
+        }
+        public T peek() {
+            if (isEmpty()) {
+                throw new IllegalStateException("Stack is empty");
+            }
+            return data.get(data.size() - 1);
+        }
+
+        public boolean isEmpty() {
+            return data.isEmpty();
+        }
+
+    public static void main(String[] args) {
+        CustomStack<Integer> stack = new CustomStack<Integer>();
+        stack.push(1);
+        stack.push(2);
+        stack.push(3);
+        System.out.println(stack.pop()); // prints 3
+        System.out.println(stack.pop()); // prints 2
+        System.out.println(stack.peek()); // prints 1
+    }
+***********************************************************
+***********************************************************
+
